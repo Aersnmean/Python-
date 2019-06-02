@@ -1,0 +1,136 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    color: #65b4f4;
+    text-decoration: none;
+    padding: 0px 10px;
+
+}
+a:hover{
+    text-decoration: underline;
+}
+p{
+    height: 28px;
+    line-height: 28px;
+    padding: 0px 10px;
+}
+table{
+    border-collapse:collapse;
+    margin-bottom: 20px;
+    width: 100%;
+}
+tr:nth-child(2n)>td{
+    background-color: #f9f9f9;
+}
+th{
+    text-align: left;
+    height: 37px;
+    border-bottom: 1px solid rgba(201, 201, 201, 0.51);
+
+}
+td{
+    height: 37px;
+    line-height: 2;
+    border-bottom: 1px solid rgba(201, 201, 201, 0.51);
+}
+.mark0{
+    width: 60%;
+    margin: 0 auto ;
+    overflow: hidden;
+}
+#mark1{
+    display: inline-block;
+    width: 74%;
+    float: left;
+}
+#mark2{
+    display: inline-block;
+    float: right;
+    width: 23%;
+}
+.morea{
+    overflow: hidden;
+}
+.moreaa{
+   float: right;
+}
+#mark3{
+    margin: 0 auto;
+    padding: 10px 0 ;
+    width: 60%;
+}
+.title{
+    height: 30px;
+    margin: 10px 0px;
+    font-size: 18px;
+    line-height: 30px;
+    border-left: 6px solid #65b4f4;
+    padding-left: 15px;
+    color: #999999;
+}
+.box{
+    padding: 12px 5px;
+    background-color: #fcfcfc;
+    font-size: 14px;
+    color: #999999;
+    border: 1px solid #eaedf4;
+}
+.information{
+    display: inline-block;
+    width: 370px;
+    padding: 6px 0px 5px 5px;
+}
+.td1{
+    padding: 0px 10px 10px;
+}
+.td2{
+    border-bottom: 0px;
+}
+.news_p{
+    font-size: 12px;
+    padding: 5px 10px;
+    margin: 0px 0px 11px;
+    display: flex;
+    justify-content: space-between;
+}
+.news_span{
+    font-size: 12px;
+}
+.bottom_box{
+    padding: 20px 0px 10px;
+    background-color: #fcfcfc;
+    font-size: 14px;
+    color: #999999;
+    border-top: 3px solid #eaedf4;
+    display: flex;  /*flex布局*/
+    justify-content: space-between;
+    flex-wrap: wrap; /*超出部分换行*/
+
+
+}
+.box_in_bottom_box{
+    display: inline-block;
+    width: 22%;
+    margin: 0 0 10px;
+    padding: 15px 10px 0;
+    background-color: #fcfcfc;
+    border: 1px solid #eaedf4;
+    font-size: 14px;
+}
+.abox{
+    display:block;
+    width: 93%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.moreaaa{
+    width: 200px;
+}
+.bottom_box_a{
+    width: 22%;
+    padding: 7px;
+    box-sizing: border-box;
+}

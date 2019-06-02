@@ -1,0 +1,100 @@
+*{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.head{
+    text-align: right;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 19px 0px 5px;
+}
+.head a{
+    color: black;
+    margin-left: 15px;
+}
+.head a:hover{
+    color: #0000cc;
+}
+.head input{
+    margin: 0px 10px 0px -5px;
+}
+.bdpng{
+    margin-top: 191px;
+}
+.bdinput{
+    position: relative;
+    margin-top: 20px;
+    font-size: 0;
+}
+.inputtext{
+    width: 540px;
+    height: 35px;
+    text-align: left;
+    border: 0.5px solid rgba(184, 184, 184, 0.8);
+    border-right: 0px;
+    padding: 0px 0px 0px 5px;
+    outline: none;
+}
+.inputtext:hover{
+    border-color: #999999;
+}
+.inputtext:active{
+    border-color: #0bbdff;
+}
+.inputtext:focus{
+    border-color: #0bbdff;
+}
+.inputbutton{
+    width: 100px;
+    height: 36px;
+    border: 0px;
+    border-bottom: 2px solid #3385ff;
+    background-color: #3385ff;
+    color: white;
+}
+.inputbutton:hover{
+    background-color: #317ef3;
+    box-shadow:inset 1px 1px 3px rgba(128, 128, 128, 0.44),inset -1px -1px 3px rgba(128, 128, 128, 0.44);
+}
+.inputbutton:active{
+    background-color: rgb(48, 117, 220);
+    border-bottom: 2px solid #3075dc;
+}
+.erweima{
+    margin-top: 350px;
+    font-size: 12px;
+    color: #666666;
+}
+#lh a{
+    font-size: 12px;
+    color: #666666;
+    margin: 0px 10px;
+}
+#cp{
+    font-size: 13px;
+    color: #666666;
+}
+#cp a{
+    font-size: 12px;
+    color: #666666;
+    margin: 0px 3px;
+}
+.camera{
+    position: absolute;
+    color: #b8b8b8;
+    top: 10px;
+    margin: 0px 0px 0px -25px;
+}
+.camera:hover{
+    color: #0bbdff;
+}
+.mac{
+    position: absolute;
+    color: #b8b8b8;
+    top: 10px;
+    margin: 0px 0px 0px -50px;
+}
+.mac:hover{
+    color: #0bbdff;
+}

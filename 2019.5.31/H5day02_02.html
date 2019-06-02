@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table表格</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        #mark1{
+            text-align: center;
+            color: aqua;
+        }
+        #mark2{
+            text-align: center;
+            color: #ff58d3;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="10" >
+        <caption></caption>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>成绩</th>
+        </tr>
+        <tr>
+            <td colspan="2" id="mark1">张三</td>
+            <td>18</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>男</td>
+            <td rowspan="2" id="mark2">17</td>
+            <td>84</td>
+        </tr>
+        <tr>
+            <td>小白</td>
+            <td>女</td>
+<!--            <td>17</td>-->
+            <td>94</td>
+        </tr>
+    </table>
+</body>
+</html>

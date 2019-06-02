@@ -1,0 +1,30 @@
+.mark1{
+    color: #848285;
+    width: 82px;
+}
+.mark2{
+    width: 65px;
+}
+.mark3{
+    width: 35px;
+}
+.mark4{
+    width: 82px;
+}
+table{
+    border-collapse:collapse;
+    text-align: center;
+    border-color: black;
+}
+*{
+    font-size: 12px;
+}
+tr{
+    height: 31px;
+}
+td{
+    border: 2px solid black;
+}
+th{
+    border: 2px solid black;
+}
