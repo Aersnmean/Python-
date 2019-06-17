@@ -60,17 +60,17 @@ window.onload=function(){
             }
             ugc_tab_item[i].className = "left ugc_tab_item current";
             if (i == 0) {
-                img_box.style = "display: block;";
-                video_box.style = "display: none;";
-                question_box.style = "display: none;";
+                img_box.style.display = "block";
+                video_box.style.display = "none";
+                question_box.style.display = "none";
             }else if(i == 1) {
-                img_box.style = "display: none;";
-                video_box.style = "display: block;";
-                question_box.style = "display: none;";
+                img_box.style.display = "none";
+                video_box.style.display = "block";
+                question_box.style.display = "none";
             }else{
-                img_box.style = "display: none;";
-                video_box.style = "display: none;";
-                question_box.style = "display: block;";
+                img_box.style.display = "none";
+                video_box.style.display = "none";
+                question_box.style.display = "block";
             }
         }
     }
