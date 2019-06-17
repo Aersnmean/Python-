@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCAII</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <h2>字符 _ASC码_互转</h2>
+    <input class="input-lg" id="input_text" type="text" placeholder="请输入字符">
+    <button class="btn-lg" id="btn1">获取ASCAII值</button>
+    <div class="input-lg" id="result1">ASCAII码：</div>
+    <hr>
+    <input class="input-lg" id="input_asc" type="text" placeholder="请输入ASCAII码">
+    <button class="btn-lg" id="btn2">获取原字符</button>
+    <div class="input-lg" id="result2">原字符：</div>
+</body>
+<script>
+    document.getElementById("btn1").onclick = function () {
+        result1 = document.getElementById("result1");
+        text = document.getElementById("input_text").value.split("");
+        result = "";
+        for (var i = 0; i < text.length; i++) {
+            result += "  "+text[i].charCodeAt()
+        }
+        result1.innerHTML = text;
+        result1.innerHTML = "ASCAII码："+result;
+    }
+    document.getElementById("btn2").onclick = function () {
+        result2 = document.getElementById("result2");
+        asc = parseInt(document.getElementById("input_asc").value);
+        result2.innerHTML = "原字符："+String.fromCharCode(asc);
+    }
+</script>
+</html>

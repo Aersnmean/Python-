@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米导航栏</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            text-decoration: none;
+        }
+        .kinds{
+            margin: 50px;
+        }
+        .kind_ul{
+            list-style: none;
+            background-color: rgb(96, 96, 96);
+            width: 200px;
+            padding: 10px;
+        }
+        .kind{
+            display: block;
+            color: white;
+            line-height: 50px;
+            padding-left: 20px;
+        }
+        .kind:hover{
+            background-color: #FF6700;
+        }
+        .infors{
+            display: none;
+            background-color: deepskyblue;
+        }
+        .kind:hover .infors{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="kinds">
+        <ul class="kind_ul">
+            <li>
+                <a class="kind" href="#">手机 电话卡>
+                    <ul class="infors">
+                        <li class="infor_li">
+                            <a href="" class="infor">
+
+                            </a>
+                        </li>
+                </a>
+            </ul>
+            </li>
+            <li><a class="kind" href="#">电视 盒子></a></li>
+            <li><a class="kind" href="#">笔记本 平板></a></li>
+            <li><a class="kind" href="#">家电 插线板></a></li>
+            <li><a class="kind" href="#">出行 穿戴></a></li>
+            <li><a class="kind" href="#">智能 路由器></a></li>
+            <li><a class="kind" href="#">电源 配件></a></li>
+            <li><a class="kind" href="#">健康 儿童></a></li>
+            <li><a class="kind" href="#">耳机 音箱></a></li>
+            <li><a class="kind" href="#">生活 箱包></a></li>
+        </ul>
+    </div>
+</body>
+</html>

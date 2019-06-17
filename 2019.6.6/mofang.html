@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition:  5s infinite;
+            transform:rotateX(0deg) rotateY(0deg);
+        }
+        .mofang_box{
+            width: 200px;
+            height: 200px;
+            margin: 300px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: 50s;
+            -webkit-animation:move 10s infinite linear;
+        }
+        @keyframes move{
+            100%{
+                transform:rotateX(360deg)rotateY(360deg)rotateZ(360deg);
+            }
+        }
+        .mofang_box:hover .left{
+            transform:rotateY(90deg)translateZ(-200px);
+        }
+        .mofang_box:hover .right{
+            transform:rotateY(90deg)translateZ(200px);
+        }
+        .mofang_box:hover .top{
+            transform:rotateX(90deg)translateZ(200px)rotateZ(360deg);
+        }
+        .mofang_box:hover .buttom{
+            transform:rotateX(90deg)translateZ(-200px)rotateZ(180deg);
+        }
+        .mofang_box:hover .hou{
+            transform:rotateX(0deg)translateZ(-200px)rotateZ(180deg);;
+        }
+        .mofang_box:hover .qian{
+            transform:rotateX(0deg)translateZ(200px);
+        }
+        .mofang{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+        }
+        .left{
+            transform:rotateY(90deg)translateZ(-100px);
+            background-color: #ff369e;
+            transition: 3s;
+        }
+        .right{
+            transform:rotateY(90deg)translateZ(100px);
+            background-color: #ff9d5b;
+            transition: 3s;
+        }
+        .top{
+            transform:rotateX(90deg)translateZ(100px)rotateZ(360deg);
+            background-color: #ffc4ff;
+            transition: 3s;
+        }
+        .buttom{
+            transform:rotateX(90deg)translateZ(-100px)rotateZ(180deg);
+            background-color: #00ff00;
+            transition: 3s;
+        }
+        .hou{
+            transform:rotateX(0deg)translateZ(-100px)rotateZ(180deg);
+            background-color: #7334ff;
+            transition: 3s;
+        }
+        .qian{
+            transform:rotateX(0deg)translateZ(100px);
+            background-color: #00bfff;
+            transition: 3s;
+        }
+    </style>
+</head>
+<body style="background-color:#23d19d">
+  <div id="box">
+    <div class="mofang_box"id="mofang_box">
+      <div class="mofang qian"></div>
+      <div class="mofang hou"></div>
+      <div class="mofang left"></div>
+      <div class="mofang right"></div>
+      <div class="mofang top"></div>
+      <div class="mofang buttom"></div>
+    </div>
+  </div>
+</body>
+</html>

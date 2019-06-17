@@ -1,0 +1,366 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    opacity: .6;
+}
+a:hover{
+    opacity: 1;
+}
+.left{
+    width: 480px;
+}
+.left_img{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-position-x: -100px;
+    height: 100%;
+    width: 480px;
+    overflow: hidden;
+}
+.left_top_logo{
+    height: 43px;
+    line-height: 43px;
+    padding-left: 46px;
+    margin-left: 30px;
+    margin-top: 18px;
+    font-size: 36px;
+}
+.left_top_logo_img{
+    top: 18px;
+    left: 30px;
+    position: fixed;
+}
+.right{
+    position: relative;
+    margin-left: 480px;
+    height: 100%;
+}
+.right>.header{
+    margin-top: 10px;
+    margin-bottom: 45px;
+}
+.right>.header>.item{
+    position: relative;
+    float: right;
+    margin: 20px 60px 0px 0px;
+}
+.right>.header>.item a{
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+.right>.header>.item .img_up{
+    display: none;
+}
+.right>.header>.item .img_down{
+    display: inline-block;
+}
+.right>.header>.item:hover .img_up{
+    display: inline-block;
+}
+.right>.header>.item:hover .img_down{
+    display: none;
+}
+.right>.header>.item .language_option{
+    width: 70px;
+    display: none;
+    position: absolute;
+    padding:10px 0px;
+}
+.right>.header>.language_select li{
+    list-style: none;
+    margin: 20px 0px;
+}
+.right>.header>.language_select:hover .language_option{
+    display: block;
+}
+.right>.header>.item>.special_num{
+    color: white;
+    border-radius: 5px;
+    background: linear-gradient(126deg,#fc4754,#ff794c) #f54444;
+    padding: 2px 10px;
+    padding-left: 20px;
+}
+.right>.header>.item .special_num_img{
+    position: absolute;
+    top: -10px;
+    left: -5px;
+}
+.right>.header>.special>.information{
+    z-index: 2;
+    width: 300px;
+    display: none;
+    position: absolute;
+    right: 0px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+}
+.right>.header>.special:hover .information{
+    display: inline-block;
+}
+.right>.header>.special>.information .input_text{
+    display: inline-block;
+    height: 50px;
+    width: 244px;
+    font-size: 16px;
+    border: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 10px;
+    outline: 0px;
+}
+.right>.header>.special>.information .input_submit{
+    display: inline-block;
+    background-color: #fff;
+    border: 0px;
+    width: 45px;
+    height: 50px;
+    vertical-align: -20px;
+    z-index: 2;
+}
+.right>.header>.special>.information .input_submit:hover{
+    background: linear-gradient(126deg,#fc4754,#ff794c) #f54444;
+    color: white;
+    outline: 0;
+}
+.right>.header>.special>.information .input_submit_img{
+    position: absolute;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    right: 14px;
+    top: 13px;
+}
+.right>.header>.special>.information .suggest-detail{
+    width: 300px;
+    text-align: center;
+    font-weight: 500;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 30px 0;
+}
+.right>.header>.special>.information .suggest-detail>a{
+    color: #1648ff;
+    padding: 30px 10px;
+}
+.main{
+    height: 100%;
+}
+.main>.content{
+    position: relative;
+    width: 500px;
+    margin: auto;
+}
+.main>.content>.title1{
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+.main>.content>.title2{
+    margin-right: 147px;
+    font-size: 28px;
+}
+.main>.content>.title3>a{
+    font-size: 24px;
+    color: #2c08ff;
+    text-decoration: none;
+}
+.main>.content>.form{
+    margin-top: 48px;
+}
+.main>.content>.form .input_name_passwd{
+    width: 480px;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 20px;
+    margin: 15px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    outline: none;
+}
+.main>.content>.form .input_name_passwd:focus{
+    border-color: deepskyblue;
+}
+.main>.content>.form .information1{
+    overflow: hidden;
+    height: 0px;
+    transition: height 0.25s ;
+}
+.main>.content>.form>.username_password:focus-within .information1{
+    height: 20px;
+}
+.main>.content>.form .information1>.text{
+    padding-bottom: 8px;
+    display: inline-block;
+    width: 95%;
+    font-size: 14px;
+    vertical-align: 3px;
+}
+.main>.content>.form .information2{
+    overflow: hidden;
+    height: 0px;
+    transition: height 0.5s ;
+}
+.main>.content>.form>.username_password:focus-within .information2{
+    height: 75px;
+}
+.main>.content>.form .information2>.text{
+    padding-bottom: 8px;
+    display: inline-block;
+    width: 95%;
+    font-size: 14px;
+    vertical-align: 3px;
+}
+.main>.content>.form>.phone_number{
+    width: 502px;
+}
+.main>.content>.form>.phone_number>.block_number{
+    position: absolute;
+    display: inline-block;
+    width: 150px;
+}
+.main>.content>.form>.phone_number>.block_number>select{
+    width: 154px;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 18px;
+    margin: 15px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+.main>.content>.form>.phone_number>.block_number>select:focus{
+    outline: none;
+    border-color: deepskyblue;
+}
+.main>.content>.form>.phone_number>.block_number .options{
+    width: 500px;
+}
+.main>.content>.form>.phone_number>.block_number .contry_name{
+    display: none;
+}
+.main>.content>.form>.phone_number>.block_number>.little_text{
+    width: 200px;
+    font-size: 14px;
+    position: absolute;
+    color: rgba(0, 0, 0, 0.55);
+    bottom: -5px;
+}
+.main>.content>.form>.phone_number>.number{
+    display: inline-block;
+}
+.main>.content>.form>.phone_number .input_number{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 323px;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    margin-left: 176px;
+    margin-top: 15px;
+    vertical-align: 2px;
+}
+.main>.content>.form .input_number:focus{
+    outline: none;
+    border-color: deepskyblue;
+}
+.main>.content>.form>.phone_number>.number>.sjyzm{
+    display: none;
+}
+.main>.content>.form>.phone_number>.number:focus-within .sjyzm{
+    display: inline-block;
+}
+.main>.content>.form>.phone_number .input_dxyz{
+    box-sizing: border-box;
+    width: 154px;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    margin-top: 40px;
+    vertical-align: 2px;
+}
+.main>.content>.form .input_dxyz:focus{
+    outline: none;
+    border-color: deepskyblue;
+}
+.main>.content>.form>.phone_number .get_dxyz{
+    box-sizing: border-box;
+    width: 323px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #3487ff;
+    border-radius: 5px;
+    margin-left: 18px;
+    vertical-align: 2px;
+    color: white;
+    background-color: #3487ff;
+}
+.main>.content>.form .get_dxyz:focus{
+    outline: none;
+    border-color: deepskyblue;
+}
+.main>.content>.form>.input_submit{
+    box-sizing: border-box;
+    width: 500px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    border: 1px solid #3487ff;
+    border-radius: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    vertical-align: 2px;
+    color: white;
+    background-color: #3487ff;
+}
+.main>.content>.input_checkbox{
+    display: inline-block;
+    color: #AAAAAA;
+    font-size: 13px;
+}
+.main>.content>.more{
+    display: inline-block;
+    margin-left: 5px;
+}
+.main>.content>.more>.content{
+    display: none;
+    width: 500px;
+    position: absolute;
+    left: 0px;
+}
+.main>.content>.more>.content a{
+    font-size: 14px;
+    color: #359eff;
+    text-decoration: none;
+}
+.main>.content>.more:hover .content{
+    display: inline-block;
+}
+.main>.content>.more>.img_up{
+    display: none;
+}
+.main>.content>.more>.img_down{
+    display: inline-block;
+}
+.main>.content>.more:hover .img_up{
+    display: inline-block;
+}
+.main>.content>.more:hover .img_down{
+    display: none;
+}
+.footer{
+    position: fixed;
+    bottom: 40px;
+    width: 75%;
+    margin: auto;
+    font-size: 14px;
+    color: #bbb;
+    text-align: center;
+    font-weight: lighter;
+}
+.empty{
+    clear: both;
+}

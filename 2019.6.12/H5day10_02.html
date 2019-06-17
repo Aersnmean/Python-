@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var money = prompt("请输入钱数：");
+    // var money = 100;
+    num_100 = Math.floor(money/100);
+    money = money % 100;
+    num_50 = Math.floor(money/50);
+    money = money % 50;
+    num_10 = Math.floor(money/10);
+    money = money % 10;
+    num_5 = Math.floor(money/5);
+    money = money % 5;
+    document.write(`需要100元${num_100}张，50元${num_50}张，10元${num_10}张，5元${num_5}张，1元${money}张`);
+    // document.write("<hr>");
+    // var num1 = 100;
+    // var num2 = 100;
+    // num2 = (++num1) + num1;
+    // document.write(num1);
+    // num1 = (num2++) + num2;
+    // document.write(num1);
+    // document.write(num2);
+</script>
+</html>

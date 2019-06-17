@@ -35,7 +35,29 @@ td{
     line-height: 2;
     border-bottom: 1px solid rgba(201, 201, 201, 0.51);
 }
-.mark0{
+#head{
+    background-color: #f0f0f0;
+}
+#head a{
+    width: 78px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #999999;
+    text-decoration: none;
+    padding: 0px;
+    float: left;
+    text-align: center;
+}
+#head a:hover{
+    background-color: #ffffff;
+}
+#head a:active{
+    background-color: #ffffff;
+}
+#head .active{
+    background-color: #ffffff;
+}
+#mark0{
     width: 60%;
     margin: 0 auto ;
     overflow: hidden;
@@ -80,13 +102,19 @@ td{
 .information{
     display: inline-block;
     width: 370px;
-    padding: 6px 0px 5px 5px;
+    padding: 6px 0px 5px 10px;
+}
+.nbsp{
+    padding: 0px 10px;
 }
 .td1{
     padding: 0px 10px 10px;
 }
 .td2{
     border-bottom: 0px;
+}
+.text_blue{
+    color: #65b4f4;
 }
 .news_p{
     font-size: 12px;
@@ -107,8 +135,6 @@ td{
     display: flex;  /*flex布局*/
     justify-content: space-between;
     flex-wrap: wrap; /*超出部分换行*/
-
-
 }
 .box_in_bottom_box{
     display: inline-block;
@@ -133,4 +159,7 @@ td{
     width: 22%;
     padding: 7px;
     box-sizing: border-box;
+}
+.empty{
+    clear: both;
 }

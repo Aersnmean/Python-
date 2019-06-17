@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂作业</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="btn btn-success" id="btn" style="height: 200px;width: 200px;">点击</div>
+</body>
+<script>
+    document.getElementById("btn").onclick = function () {
+        var money = parseInt(prompt("请输入钱数"));
+        var money_count = [100, 50, 10, 5, 1];
+        var num = [];
+        for (var i = 0; i < 5; i++) {
+            num[i] = parseInt(money / money_count[i]);
+            money %= money_count[i];
+        }
+        document.write(`需要100元${num[0]}张，50元${num[1]}张，10元${num[2]}张，5元${num[3]}张，1元${num[4]}张`);
+    }
+</script>
+</html>

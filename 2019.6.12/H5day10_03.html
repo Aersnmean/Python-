@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <button class="btn btn-success" id="btn" style="width: 200px;height: 200px;">点击</button>
+</body>
+<script>
+    // alert("警告");
+    // var really = confirm("确定？");  //true  or  false
+    // var name = prompt("请输入");
+    // document.write(really);
+    // document.write(name);
+    btn = document.getElementById("btn");
+    btn.onclick = function () {
+        alert(btn.name)
+    }
+</script>
+</html>

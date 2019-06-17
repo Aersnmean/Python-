@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cla{
+            width: 815px;
+            background-color: #999999;
+            /*display: inline-block;*/
+        }
+        .cla1{
+            width: 200px;
+            height: 800px;
+            background-color: #00ffff;
+            /*float: left;*/
+            /*display: inline-block;*/
+            /*display: flex;*/
+            /*justify-content: space-between;*/
+            /*flex-wrap: wrap;*/
+
+        }
+        .cla2{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="#base1">base1</a>
+        <a href="#base2">base2</a>
+        <a href="#base3">base3</a>
+        <a href="#base4">base4</a>
+    </div>
+    <div class="cla">
+        <div class="cla1" id="base1">base1</div>
+        <div class="cla1" id="base2">base2</div>
+        <div class="cla1" id="base3">base3</div>
+        <div class="cla1" id="base4">base4</div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>

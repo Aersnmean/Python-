@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form表单补充</title>
+    <style>
+        /*属性选择器*/
+        input[name]{
+            background-color: #00ffff;
+        }
+        input[name=dat]{
+            width: 500px;
+        }
+        /*包含a*/
+        input[name *=a]{
+            height: 50px;
+        }
+        /*以e为单独一部分*/
+        input[name ~="e"]{
+            box-shadow: 5px 0 5px #ff58d3;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <!--邮箱-->
+            <input type="email" name="e ma">
+        </div>
+        <div>
+            <!--日期-->
+            <input type="date" name="dat" value="2019-06-11">
+        </div>
+        <div>
+            <!--年月-->
+            <input type="month" name="e at" value="2019-06">
+        </div>
+        <div>
+            <!--年周-->
+            <input type="week" value="2019-W03">
+        </div>
+        <div>
+            <!--数字-->
+            <input type="number" min="100" max="300" value="100">
+        </div>
+        <div>
+            <!--进度条-->
+            <input type="range" min="0" max="100" step="10" value="0">
+        </div>
+        <div>
+            <!--颜色选择-->
+            <input type="color">
+        </div>
+        <div>
+            <!--文件选择控件-->
+            <input type="file" id="file1">
+        </div>
+        <div>
+            <!--绑定标签-->
+            <label for="file1">上传文件</label>
+        </div>
+    </form>
+</body>
+</html>

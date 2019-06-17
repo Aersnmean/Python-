@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+        }
+        .input_area:hover .information{
+            display: block;
+        }
+        .input_text{
+            position: relative;
+            padding-left: 10px;
+            margin: 10px 0px;
+            text-align: left;
+            width: 400px;
+            height: 50px;
+            border: 1px solid deepskyblue;
+            border-radius: 10px;
+            outline: 0px;
+            font-size: 26px;
+        }
+        .information{
+            font-size: 16px;
+            /*position: relative;*/
+            top: 0;
+            left: 645px;
+            display: none;
+            width: 400px;
+            /*vertical-align: middle;*/
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <from>
+        <div class="input_area">
+            <input class="input_text" type="text" name="username" placeholder="用户名">
+            <div class="information">
+                <p><img src="https://4.url.cn/zc/v3/img/info.png" alt=""> 用户名应为6-16位字符</p>
+            </div>
+        </div>
+        <div class="input_area">
+            <input class="input_text" type="password" name="userpassword" placeholder="密码">
+            <div class="information">
+                <p><img src="https://4.url.cn/zc/v3/img/info.png" alt=""> 不能包括空格</p>
+                <p><img src="https://4.url.cn/zc/v3/img/info.png" alt=""> 长度为8-16个字符</p>
+                <p><img src="https://4.url.cn/zc/v3/img/info.png" alt=""> 必须包含字母、数字、符号中至少2种</p>
+            </div>
+        </div>
+    </from>
+</body>
+</html>

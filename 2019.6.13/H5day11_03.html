@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>little_example</title>
+</head>
+<body>
+    <h2>判断一个月份是什么季节</h2>
+    <input type="month" id="input_text" placeholder="请输入月份">
+    <button class="btn" id="btn">提交</button>
+</body>
+<script>
+    document.getElementById("btn").onclick = function () {
+        year = document.getElementById("input_text").value.split("-")[0];
+        month = parseInt(document.getElementById("input_text").value.split("-")[1]);
+        if (month >= 1 && month <= 12) {
+            if (month >= 3 && month <= 5) {
+                season = "春季"
+            }else if (month >= 6 && month <= 8) {
+                season = "夏季"
+            }else if (month >= 9 && month <= 11) {
+                season = "秋季"
+            }else{
+                season = "冬季"
+            }
+        }
+        alert(`${year}年${month}月是${season}`)
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>little_example</title>
+</head>
+<body>
+    <h2>判断一个月份的天数</h2>
+    <input type="month" id="input_text" placeholder="请输入月份">
+    <button class="btn" id="btn">提交</button>
+    <div id="show_result"></div>
+</body>
+<script>
+    document.getElementById("btn").onclick = function () {
+        var year = document.getElementById("input_text").value.split("-")[0];
+        var month = parseInt(document.getElementById("input_text").value.split("-")[1]);
+        var day_30 = [4, 6, 9, 11];
+        var day;
+        if (day_30.includes(month)) {
+            if (day_30.includes(month)){
+                day = 30;
+            }else if (month != 2) {
+                day = 31;
+            }else if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)){
+                day = 29;
+            }else{
+                day = 28
+            }
+        }else{
+            // result = "你输入的月份不正确，请重新输入";
+            alert("你输入的月份不正确，请重新输入");
+        }
+        // result = `${year}年${month}月有${day}天`
+        alert(`${year}年${month}月有${day}天`);
+    }
+</script>
+</html>

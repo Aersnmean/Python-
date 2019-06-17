@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>from表单</title>
+    <style>
+        #txt{
+            resize: none;
+            /*默认超出范围隐藏*/
+            overflow: hidden;
+            /*默认超出范围显示  宽高*/
+            /*overflow: visible;*/
+            /*超出部分滚动显示*/
+            /*overflow: scroll  高;*/
+        }
+        .passwd{
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--form表单-->
+    <!--action：网址和要提交的参数-->
+    <form action="https://www.baidu.com/s">
+        <div>
+           <!--type="text"单行文本输入框-->
+            <input type="text" name="wd" placeholder="搜你想搜的">：百度一下
+        </div>
+        <div>
+            <!--textarea多行文本输入框-->
+            <!--cols:列  rows:行-->
+            <textarea name="" id="txt" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <!--密码框-->
+            密码：<input class="passwd" type="password" name="pwd" placeholder="请输入密码">
+        </div>
+        <div>
+            <!--单选框-->
+            性别：<input type="radio" name="sex" value="1" checked="checked">男
+            <input type="radio" name="sex" value="2">女
+            <input type="radio" name="sex" value="3">女
+        </div>
+        <div>
+            <!--多选框-->
+            爱好：<input type="checkbox" name="hobby" value="1">学习
+            <input type="checkbox" name="hobby" value="2">玩游戏
+            <input type="checkbox" name="hobby" value="3">打球
+        </div>
+        <div>
+            城市：
+            <select name="city" id="">
+                <option value="bj">北京</option>
+                <option value="sh">上海</option>
+                <option value="gz">广州</option>
+                <option value="sz">深圳</option>
+                <option value="sx" selected="selected">山西</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" name="sub" value="立即注册">
+        </div>
+    </form>
+</body>
+</html>

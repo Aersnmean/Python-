@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>little_example</title>
+</head>
+<body>
+    <h2>判断一个年份是否是闰年</h2>
+    <input type="text" id="input_text" placeholder="请输入年份">
+    <button class="btn" id="btn">提交</button>
+</body>
+<script>
+    document.getElementById("btn").onclick = function () {
+        year = document.getElementById("input_text").value;
+        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)){
+            alert(`${year}是闰年`);
+        }else{
+            alert(`${year}不是闰年`);
+        }
+    }
+</script>
+</html>

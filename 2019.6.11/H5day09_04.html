@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父级兄弟选择器</title>
+    <style>
+        .cla0{
+            width: 500px;
+            height: 500px;
+            background-color: #ffd000;
+        }
+        .cla1{
+            width: 150px;
+            height: 150px;
+            background-color: deepskyblue;
+        }
+        .cla2{
+            /*display: none;*/
+            width: 150px;
+            height: 150px;
+            background-color: deeppink;
+        }
+        .cla1:hover .cla1:has(+cla2){
+            /*display: block;*/
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="cla0">
+        <div class="cla1">中北</div>
+        <div class="cla2">中北大学</div>
+    </div>
+
+</body>
+</html>

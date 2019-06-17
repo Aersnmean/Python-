@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>compute</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div style="width: 1000px; margin: auto">
+        <input class="input-lg" type="number" id="num1" placeholder="">
+        <select class="input-lg" name="operate" id="operate">
+            <option value="+" label="+"></option>
+            <option value="-" label="-"></option>
+            <option value="*" label="*"></option>
+            <option value="/" label="/"></option>
+            <option value="%" label="%"></option>
+        </select>
+        <input class="input-lg" type="number" id="num2" placeholder="">
+        =
+        <input class="input-lg" type="text" id="result" readonly>
+        <button class="btn-success" style="width: 67px;height: 46px;" id="btn">计算</button>
+    </div>
+</body>
+<script>
+    document.getElementById("btn").onclick = function () {
+        num1 = Number(document.getElementById("num1").value);
+        num2 = Number(document.getElementById("num2").value);
+        operate = document.getElementById("operate").value;
+        if (operate == "+") {
+            result = num1 + num2
+        }else if(operate == "-"){
+            result = num1 - num2
+        }else if(operate == "*"){
+            result = num1 * num2
+        }else if(operate == "/"){
+            result = num1 / num2
+        }else if(operate == "%"){
+            result = num1 % num2
+        }
+        document.getElementById("result").value = result
+    }
+</script>
+</html>

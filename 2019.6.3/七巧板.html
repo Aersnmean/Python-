@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>七巧板</title>
+	</head>
+	<body>
+		<canvas id="c1" style="border: 1px solid gray;"></canvas>
+		<script type="text/javascript">
+			var tangram = [
+			{p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:"yellow"},
+			{p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:"pink"},
+			{p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:"purple"},
+			{p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:"blue"},
+			{p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:"red"},
+			{p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"green"},
+			{p:[{x:400,y:800},{x:800,y:400},{x:800,y:800}],color:"lightblue"}
+			];
+			
+			function draw(c,shape)
+			{
+				
+				c.beginPath();  //开始绘制一个路径
+				c.moveTo(shape.p[0].x,shape.p[0].y);//移到要绘制的图形的第一个坐标处
+				c.fillStyle = shape.color;
+				for (var i = 1; i < shape.p.length; i++) //依次绘制到后续坐标
+					c.lineTo(shape.p[i].x,shape.p[i].y);  
+				c.closePath();  //结束一个路径的绘制
+				c.fill();
+			}
+			window.onload = function(){
+				var canvas = document.getElementById("c1");
+				var context = canvas.getContext("2d");
+				canvas.width =800;
+				canvas.height = 800;			
+				for (var i = 0; i < tangram.length; i++) {
+					draw(context,tangram[i]);
+				}
+			};
+		</script>
+	</body>
+</html>
