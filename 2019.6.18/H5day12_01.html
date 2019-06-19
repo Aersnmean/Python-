@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 循环</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .little_box{
+            display:inline-block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+    // for (let i = 1; i <= 100; i++) {
+    //     if (i % 2 == 0) {
+    //         if (i % 6 == 0) {
+    //             document.write(`<h3 style="color: chartreuse">${i}</h3>`)
+    //         }else if (i % 4 == 0) {
+    //             document.write(`<h3 style="color: #f85959">${i}</h3>`)
+    //         }else{
+    //             document.write(`<h3 style="color: #00ffff">${i}</h3>`)
+    //         }
+    //     }
+    // }
+    function ChangeColor() {
+        let spans = document.querySelectorAll(".little_box");
+        colors = getItemColors(getRandomColor(), getRandomColor() ,45);
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].style.backgroundColor = `${colors[i]}`;
+        }
+    }
+
+    setInterval("ChangeColor()", 1000);
+
+    function getRandomColor() {
+        let rand = Math.floor(Math.random() * 0xFFFFFF).toString(16);
+        if(rand.length == 6){
+            return rand;
+        }else{
+            return getRandomColor();
+        }
+    }
+    function getItemColors (color1,color2,colorLevel) {
+        let colors= [];
+        let red = parseInt(color1.substring(0,2),16),green = parseInt(color1.substring(2,4),16),blue = parseInt(color1.substring(4,6),16);
+        var maxRed = parseInt(color2.substring(0,2),16),maxGreen = parseInt(color2.substring(2,4),16),maxBlue = parseInt(color2.substring(4,6),16);
+        var level = colorLevel;
+        while(level--) {
+           colors.push( 'rgb('+red +','+green+','+blue+')');
+           red += parseInt(maxRed/colorLevel);            green += parseInt(maxGreen/colorLevel);
+           blue += parseInt(maxBlue/colorLevel);
+        }
+        return colors;
+
+    }
+
+    let colors = getItemColors(getRandomColor(), getRandomColor() ,10);
+    for (let i = 1; i <= 9; i++) {
+        for (let x = 1; x <= i; x++){
+            // color1 = getRandomColor();
+            document.write(`<div style="background-color: ${colors[i]};" class="little_box">${i} * ${x} = ${i * x}</div>`);
+        }
+        document.write("<br>")
+    }
+    // for (let x = 1; x < 10; x++) {
+    //     for (let y = 0; y < 10; y++) {
+    //         for (let z = 0; z < 10; z++) {
+    //             if (x ** 3 + y ** 3 + z ** 3 == x * 100 + y * 10 + z) {
+    //                 document.write(`<h3>${x * 100 + y * 10 + z}</h3>`)
+    //             }
+    //         }
+    //     }
+    // }
+</script>
+</html>
