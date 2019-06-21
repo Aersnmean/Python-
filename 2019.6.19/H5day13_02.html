@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课后练习</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload = function () {
+        document.write(`<h3>1、定义一个数组含有20个随机整数[10, 100],去除数组中重复的随机数？</h3>`);
+        f1();
+        document.write(`<h3>2、定义一个数组含有10个随机整数[5, 15],求数组中的第二大值？</h3>`);
+        f2();
+        document.write(`<h3>3、定义两个数组，分别存储3个和5个随机整数[5,10]，先对两个数组做从小到大排序，之后再将两个数组元素按照从小到大顺序排序（排序只能用2次）？</h3>`);
+        f3();
+        document.write(`<h3>4、约瑟夫环（约瑟夫问题）：有10个俘虏（以编号1，2，3...10分别表示）围坐在一起。从编号为1的人开始报数，数到3的那个人被拉出去枪毙；他的下一个人又从1开始报数，数到3的那个人又被拉出去枪毙；依此规律重复下去，直到最后一个人，求最后剩下的的那个人的编号，并输出被枪毙人的编号顺序？（经典思考题）</h3>`);
+        f4();
+        document.write(`<h3>5、定义一个5行5列的二维数组存储[3,10]的随机整数，求数组中每行的最大值和每列的最小值及整个二维数组中的最小值</h3>`);
+        f5();
+        document.write(`<h3>6、定义一个3行3列的二维数组，存储[15,25]的随机整数，求该二维数组的所有鞍点下标？（鞍点：即该位置的数字及时对应行的最大值同时也是对应列的最小值）（经典思考题）</h3>`);
+        f6();
+    }
+    function f1() {
+        let list1 = [];
+        for (let i = 0; i < 20; i++) {
+            list1.push(parseInt(Math.random()*91)+10);
+        }
+        document.write(`<h4>${list1}</h4>`);
+        for (let i = 0; i < list1.length; i++) {
+            for (let j = i+1; j < list1.length; j++) {
+                if (list1[i] == list1[j]) {
+                    list1.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        document.write(`<h4>${list1}</h4>`);
+    }
+    function f2() {
+        let list2 = [];
+        for (let i = 0; i < 10; i++) {
+            list2.push(parseInt(Math.random()*11)+5);
+        }
+        document.write(`<h4>${list2}</h4>`);
+        list2.sort(function (a, b) {
+            return b-a;
+        })
+        document.write(`<h4>${list2[1]}</h4>`);
+    }
+    function f3() {
+        let list3_1 = [];
+        for (let i = 0; i < 3; i++) {
+            list3_1.push(parseInt(Math.random()*6)+5);
+        }
+        document.write(`<h4>list1:  ${list3_1}</h4>`);
+        document.write(`<h4>list1:  ${paixu(list3_1)}</h4>`);
+        let list3_2 = [];
+        for (let i = 0; i < 5; i++) {
+            list3_2.push(parseInt(Math.random()*6)+5);
+        }
+        document.write(`<h4>list2:  ${list3_2}</h4>`);
+        document.write(`<h4>list1:  ${paixu(list3_2)}</h4>`);
+        let list3_3 = list3_1.concat(list3_2);
+        document.write(`<h4>list2:  ${list3_3}</h4>`);
+        document.write(`<h4>list1:  ${paixu(list3_3)}</h4>`);
+        function paixu(list) {
+            for (let i = 0; i < list.length; i++) {
+                for (let j = i+1; j < list.length; j++) {
+                    if (list[i] > list[j]) {
+                        let flag = list[i];
+                        list[i] = list[j];
+                        list[j] = flag;
+                    }
+                }
+            }
+            return list;
+        }
+    }
+    function f4() {
+        let list4 = [1,2,3,4,5,6,7,8,9,10];
+        let num = 1;
+        let index = 0;
+        while (list4.length > 1) {
+            if (index == list4.length) {
+                index = 0;
+            }
+            if (num == 3) {
+                document.write(`<h4>${list4[index]}被枪毙</h4>`);
+                list4.splice(index,1);
+                num = 1;
+                document.write(`<h4>${list4}</h4>`);
+            }
+            index++;
+            num++;
+        }
+        document.write(`<h4>最后还剩${list4}</h4>`);
+    }
+    function f5() {
+        let list5 = new Array();
+        for (let i = 0; i < 5; i++) {
+            list5[i] = new Array();
+            for (let j = 0; j < 5; j++) {
+                list5[i][j] = parseInt(Math.random()*8)+3;
+            }
+        }
+        for (let i = 0; i < list5.length; i++) {
+            document.write(`${list5[i]}<br>`);
+        }
+        for (let i = 0; i < list5.length; i++) {
+            document.write(`第${i+1}行最小值为${Math.min.apply(null,list5[i])}<br>`);
+        }
+        for (let i = 0; i < 5; i++) {
+            document.write(`第${i+1}列最大值为${Math.max.apply(null,[list5[0][i],list5[1][i],list5[2][i],list5[3][i],list5[4][i]])}<br>`);
+        }
+        document.write(`整个数组的最小值为${Math.min.apply(null,[Math.min.apply(null,list5[0]),Math.min.apply(null,list5[1]),Math.min.apply(null,list5[2]),Math.min.apply(null,list5[3]),Math.min.apply(null,list5[4])])}<br>`);
+    }
+    function f6() {
+        let list6 = new Array();
+        for (let i = 0; i < 3; i++) {
+            list6[i] = new Array();
+            for (let j = 0; j < 3; j++) {
+                list6[i][j] = parseInt(Math.random()*11)+15;
+            }
+        }
+        for (let i = 0; i < list6.length; i++) {
+            document.write(`${list6[i]}<br>`);
+        }
+        for (let i = 0; i < list6.length; i++) {
+            for (let j = 0; j < list6[i].length; j++) {
+                if (list6[i][j] == Math.min.apply(null, list6[i]) && list6[i][j] == Math.max.apply(null,[list6[0][j],list6[1][j],list6[2][j]])) {
+                    document.write(`鞍点为${list6[i][j]}`);
+                    return
+                }else if (i == list6.length - 1 && j == list6[i].length -1 ) {
+                    document.write("不存在鞍点");
+                }
+            }
+        }
+    }
+</script>
+</html>

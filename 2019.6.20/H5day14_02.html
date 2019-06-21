@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+    <script>
+        //    3.  // 约瑟夫环（约瑟夫问题）：
+    // 有10个俘虏（以编号1，2，3...10分别表示）
+    // 围坐在一起。
+    // 从编号为1的人开始报数，数到3的那个人被拉出去枪毙；
+    // 他的下一个人又从1开始报数，数到3的那个人又被拉出去枪毙；
+    // 依此规律重复下去，直到最后一个人，求最后剩下的的那个人的编号，
+    // 并输出被枪毙人的编号顺序？（经典思考题
+//       第一种解答方式，利用数组的特性
+//        var list1 = [1,2,3,4,5,6,7,8,9,10];
+//        while(list1.length>2){      // 最后留下来两个人
+//            var list2 = list1.slice(0,3);   // 求 要枪毙的人
+//            document.write(`<h3>要枪毙的人：${list2.pop()}<h3>`);
+//            list1.splice(0,3);   // 切掉第一组（3个人）
+//            document.write(`<h3>剪切掉后的数组：${list1}<h3>`);
+//            var list1 = list1.concat(list2);
+//            document.write(`<h3>拼接上后的数组:${list1}<h3>`);
+//        }
+//        if(list1.length == 2){
+//            document.write(`<h3>要枪毙的人：${list1.shift()}<h3>`);
+//            document.write(`<h3>最后留下来的人：${list1[0]}<h3>`);
+//        }
+        var list1 = [1,1,1,1,1,1,1,1,1,1]; //1表示人活着，0表示人被枪毙
+        var count = 10;   // 表示现在还有多少人活着
+        var index = 0;  // 表示数组中的下标    
+        var num = 1;   // 数的数
+        while(list1.length>1){  //最后有一个人活着
+            if(list1[index] ==1){
+                num++;    // 数的数 + 1
+                if(num == 3){
+                    list1[index] =0;
+                    count--;
+                    num = 1;
+                    document.write(`<h3>要枪毙的人：${index+1}<h3>`) // 给每个人的编号
+                }
+            }
+            index++;
+            if(index == list1.length){
+                index = 0;
+            }
+        }
+        document.write(`<h3>最后留下来的人：${list1.indexOf(1)+1}<h3>`);
+
+
+
+    </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../0angle/css/bootstrap.min.css">
+    <style>
+        .select{
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: #2b2b2b;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 400px;width: 400px;margin: auto" id="item1">
+        <div class="select">1</div>
+        <div class="select">2</div>
+        <div class="select">3</div>
+        <div class="select">4</div>
+    </div>
+</body>
+<script>
+
+    // let name = "sjfdgh,s,jaDh1,24,21C3,1J2,4H5,A53,5424f6,kh5,m7,6kdshj,kaf";
+    // let z_ze = /[0-9a-hA-H]/g;
+    // let list = name.match(z_ze);
+    // document.write(list);
+
+    function getRandomColor() {
+        let rand = Math.floor(Math.random() * 0xFFFFFF).toString(16);
+        if(rand.length == 6){
+            return `#${rand}`;
+        }else{
+            return getRandomColor();
+        }
+    }
+    function changeColor() {
+        let selects = document.querySelectorAll(".select");
+        for (let i = 0; i < selects.length; i++) {
+            selects[i].style.backgroundColor = getRandomColor();
+        }
+    }
+    // setInterval(changeColor,1000);
+</script>
+</html>

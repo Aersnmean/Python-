@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+</body>
+<script>
+    function f1(length = 10) {
+        let list = [];
+        for (let i = 0; i < length; i++) {
+            list[i] = Math.floor(Math.random()*6);
+        }
+        return list;
+    }
+    document.write(`${f1(18)}`);
+</script>
+</html>

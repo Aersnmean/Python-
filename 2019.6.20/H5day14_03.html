@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+//        <!--callback:回调函数-->
+//            定义一个随机数组。要求数组中元素，全部为偶数，
+//          数据由外界提供，长度由外界定义
+//                    回调函数功能： 全部为偶数
+            function callback(list,rand_num,length) {
+                if(rand_num %7 ==0){
+                    list.push(rand_num);
+                }
+                if(list.length == length){
+                    return false;
+                }else {
+                    return true;
+                }
+            }
+
+            var list1 =[];
+            function func(min,max,length,callback) {
+                var result = true;
+                while(result){
+                    var rand_num = Math.floor(Math.random()*(max-min+1) + min);
+                    result = callback(list1,rand_num,length)
+                }
+                    return list1;
+            }
+            var func1 = func(10,100,10,callback)
+            document.write(`<h3>${func1}<h3>`)
+    </script>
+</html>

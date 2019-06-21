@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课后作业</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        div{
+            margin: 10px 0px;
+        }
+        .answer{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h3>1、定义函数完成随机颜色的生成？</h3>
+    <div style="height: 200px;width: 200px;background-color: #c1e2b3" id="item1"></div>
+    <div>
+        <h3>2、定义函数生成一个一维数组的生成，数组内部初始值为1？</h3>
+        <input type="text" class="input-sm" id="item2_1" placeholder="请输入数组长度">
+        <input type="text" class="input-sm answer" id="item2_2" placeholder="结果">
+    </div>
+    <div>
+        <h3>3、定义函数完成输入半径返回对应圆的面积？</h3>
+        <input type="text" class="input-sm" id="item3_1" placeholder="请输入圆的半径">
+        <input type="text" class="input-sm" id="item3_2" placeholder="圆的面积">
+    </div>
+    <div>
+        <h3>4、定义函数完成数组去重操作？</h3>
+        <input type="text" class="input-sm" id="item4_1" placeholder="请输入数组长度">
+        <input type="text" class="input-sm answer" id="item4_2" placeholder="未去重数组">
+        <input type="text" class="input-sm answer" id="item4_3" placeholder="已去重数组">
+    </div>
+    <div>
+        <h3>5、定义函数完成对任意数组升序排序？</h3>
+        <input type="text" class="input-sm" id="item5_1" placeholder="请输入数组长度">
+        <input type="text" class="input-sm answer" id="item5_2" placeholder="未排序数组">
+        <input type="text" class="input-sm answer" id="item5_3" placeholder="已排序数组">
+    </div>
+    <div>
+        <h3>6、定义函数完成对任意两个升序排序的数组元素的合并，但是合并之后数组元素仍然是升序排序</h3>
+        数组1：<input type="text" class="input-sm" id="item6_1" placeholder="数组1">
+        数组2：<input type="text" class="input-sm" id="item6_2" placeholder="数组2"><br>
+        <input type="text" class="input-sm answer" id="item6_3" placeholder="组合后数组">
+    </div>
+    <div>
+        <h3>7、定义函数完成求一个数组中的最大值？</h3>
+        <input type="text" class="input-sm" id="item7_1" placeholder="数组">
+        <input type="text" class="input-sm" id="item7_2" placeholder="最大值">
+    </div>
+    <div>
+        <h3>8、定义函数完成求一个数组中的第二小值？</h3>
+        <input type="text" class="input-sm" id="item8_1" placeholder="数组">
+        <input type="text" class="input-sm" id="item8_2" placeholder="第二小值">
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        setInterval(changeColor,1000);
+        document.onkeyup = function () {
+            document.getElementById("item2_2").value = Init_an_array(document.getElementById("item2_1").value);
+            document.getElementById("item3_2").value = GetAreaByRadius(document.getElementById("item3_1").value);
+            document.getElementById("item4_2").value = GetRandomArray(document.getElementById("item4_1").value);
+            document.getElementById("item4_3").value = RemoveDuplicates(document.getElementById("item4_2").value.split(","));
+            document.getElementById("item5_2").value = GetRandomArray(document.getElementById("item5_1").value);
+            document.getElementById("item5_3").value = ArraySort(document.getElementById("item5_2").value.split(","));
+            document.getElementById("item6_1").value = ArraySort(GetRandomArray(5));
+            document.getElementById("item6_2").value = ArraySort(GetRandomArray(5));
+            document.getElementById("item6_3").value = ArrayAdd(document.getElementById("item6_1").value.split(","),document.getElementById("item6_2").value.split(","));
+            document.getElementById("item7_1").value = GetRandomArray(10);
+            document.getElementById("item7_2").value = ArrayMaxValue(document.getElementById("item7_1").value.split(","));
+            document.getElementById("item8_1").value = GetRandomArray(10);
+            document.getElementById("item8_2").value = GetSecondValue(document.getElementById("item8_1").value.split(","));
+        }
+
+    }
+    function getRandomColor() {
+        let rand = Math.floor(Math.random() * 0xFFFFFF).toString(16);
+        if(rand.length == 6){
+            return rand;
+        }else{
+            return getRandomColor();
+        }
+    }
+    function changeColor() {
+        document.getElementById("item1").style.backgroundColor = `#${getRandomColor()}`;
+    }
+
+    function Init_an_array(length) {
+        if (length >= 0) {
+            let array = [];
+                for (let i = 0; i < length; i++) {
+                    array[i] = 1;
+                }
+                return array;
+        }
+        else {
+            return "输入错误"
+        }
+    }
+    
+    function GetAreaByRadius(radius) {
+        if (radius >= 0) {
+            return Math.PI*radius**2;
+        }
+        else {
+            return "输入错误"
+        }
+    }
+
+    function GetRandomArray(length, min = 0, max = 10) {
+        if (length >= 0) {
+            let array = [];
+            for (let i = 0; i < length; i++) {
+                array[i] = parseInt(Math.random()*(max-min+1)+min);
+            }
+            return array;
+        }
+        else {
+            return "输入错误"
+        }
+    }
+
+    function RemoveDuplicates(array) {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = i+1; j < array.length; j++) {
+                if (array[i] == array[j]) {
+                    array.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        return array;
+    }
+
+    function ArraySort(array) {
+        if (array != null) {
+            for (let i = 0; i < array.length; i++) {
+                array[i] = Number(array[i]);
+            }
+            for (let i = 0; i < array.length; i++) {
+                for (let j = i+1; j < array.length; j++) {
+                    if (array[i] > array[j]) {
+                        let flag = array[i];
+                        array[i] = array[j];
+                        array[j] = flag;
+                    }
+                }
+            }
+            return array;
+        }
+    }
+
+    function ArrayAdd(array1, array2) {
+        let num1 = 0;
+        let num2 = 0;
+        let array = [];
+        for (let i = 0; i < array1.length; i++) {
+                array1[i] = Number(array1[i]);
+        }
+        for (let i = 0; i < array2.length; i++) {
+                array2[i] = Number(array2[i]);
+            }
+        while (num1 < array1.length && num2 < array2.length) {
+            if (array1[num1] <= array2[num2]){
+                console.log(array1[num1]);
+                array.push(array1[num1]);
+                num1++;
+            }else {
+                console.log(array2[num2]);
+                array.push(array2[num2]);
+                num2++;
+            }
+        }
+        console.log(array2.slice(num2));
+        console.log(array1.slice(num1));
+        array = array.concat(array1.slice(num1),array2.slice(num2));
+        return array;
+    }
+
+    function ArrayMaxValue(array) {
+        return Math.max.apply(null,array);
+    }
+
+    function GetSecondValue(array) {
+        array.sort(function (a,b) {
+            return a-b;
+        })
+        return array[1];
+    }
+</script>
+</html>

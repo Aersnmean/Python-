@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>replace</title>
+    <link rel="stylesheet" href="../0angle/css/bootstrap.min.css">
+</head>
+<body>
+    <input type="text" class="input-sm" id="mark1">
+</body>
+<script>
+    mark1.oninput = function () {
+        mark1.value = ReplaceTo(mark1.value);
+    };
+
+    
+    function ReplaceTo(str) {
+        let z_ze = /\w/g;
+        str = str.replace(z_ze,"*");
+        return str
+    }
+</script>
+</html>

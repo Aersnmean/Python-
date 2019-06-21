@@ -313,6 +313,7 @@ ul{
 }
 .index_content .feed_infinite_wrapper>ul .title_box{
     padding-bottom: 10px;
+    vertical-align: middle;
 }
 .index_content .feed_infinite_wrapper>ul .left_img{
     float: left;

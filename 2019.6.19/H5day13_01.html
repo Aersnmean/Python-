@@ -7,4 +7,47 @@
 <body>
 
 </body>
+<script>
+    // let list1 = [1,2,3,4,5,6,7,8];
+    // document.write(`<h3>${list1}</h3>`);
+    // // 在数组最前面添加
+    // list1.unshift(0);
+    // document.write(`<h3>${list1}</h3>`);
+    // // 在数组最后面添加
+    // list1.push(9);
+    // document.write(`<h3>${list1}</h3>`);
+    // // 删除数组中最前面的数据
+    // let num1 = list1.shift();
+    // document.write(`<h3>${num1}</h3>`);
+    // document.write(`<h3>${list1}</h3>`);
+    // // 删除数组中最后面的数据
+    // let num2 = list1.pop();
+    // document.write(`<h3>${num2}</h3>`);
+    // document.write(`<h3>${list1}</h3>`);
+    // let str1 = list1.join("-");
+    // document.write(`<h3>${str1}</h3>`);
+    // document.write(`<h3>${list1}</h3>`);
+    // list1.splice(2,0,"小白");
+    // document.write(`<h3>${list1}</h3>`);
+    // list1.splice(2,1,"小黑");
+    // document.write(`<h3>${list1}</h3>`);
+    
+    let list2 = [5,6,8,12,4,1,9,16,31,478,16,468,13,46,465];
+    document.write(`<h3>${list2}</h3>`);
+    // list2.sort();
+    function maopao_sort(list) {
+        for (let i = 0; i < list.length; i++) {
+            for (let j = i+1; j < list.length; j++) {
+                if (list[i] < list[j]) {
+                    let flag = list[i];
+                    list[i] = list[j];
+                    list[j] = flag;
+                }
+            }
+        }
+        return list;
+    }
+    list2 = maopao_sort(list2);
+    document.write(`<h3>${list2}</h3>`);
+</script>
 </html>
