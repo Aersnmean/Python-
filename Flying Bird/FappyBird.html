@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>飞翔的小鸟</title>
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1,
+    minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 343px;
+            height: 480px;
+            background: url("img/bg.jpg");
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+        .score_board{
+            display: none;
+            width: 269px;
+            height: 135px;
+            background: url("img/message.jpg");
+            position: absolute;
+            left: 35px;
+            top: 180px;
+            font-size: 20px;
+            z-index: 11;
+        }
+        .score_board>.score{
+            position: absolute;
+            top: 35px;
+            right: 40px;
+        }
+        .score_board>.best{
+            position: absolute;
+            top: 85px;
+            right: 40px;
+        }
+        .level_bird{
+            position: absolute;
+            left: 220px;
+            top: 160px;
+            animation: move 2s infinite linear;
+        }
+        @keyframes move {
+            0%{
+                top: 160px;
+            }
+            50%{
+                top: 130px;
+            }
+            100%{
+                top: 160px;
+            }
+        }
+        .start{
+            position: absolute;
+            left: 121px;
+            top: 260px;
+        }
+        .bird{
+            display: none;
+            position: absolute;
+            left: 70px;
+            top: 220px;
+            z-index: 10;
+        }
+        .now_score{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 150px;
+            z-index: 10;
+        }
+        .head{
+            position: absolute;
+            top: 155px;
+            left: 70px;
+        }
+        .pipes{
+            list-style: none;
+            position: absolute;
+            height: 425px;
+            right: -100px;
+        }
+        .pipes>li{
+            width: 62px;
+            height: 425px;
+            position: absolute;
+        }
+        .up_pipe{
+            position: absolute;
+            width: 62px;
+            background: url("img/up_pipe.png") no-repeat bottom,url("img/up_mod.png");
+        }
+        .down_pipe{
+            position: absolute;
+            width: 62px;
+            bottom: 0px;
+            background: url("img/down_pipe.png") no-repeat top, url("img/down_mod.png");
+        }
+    </style>
+    <script src="../0angle/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let speed = 0;
+            $(".start").on("click",function () {
+                game_music.play();
+                $(this).hide();
+                $(".head").hide();
+                $(".level_bird").hide();
+                $(".now_score").show();
+                $(".bird").show();
+                setTimeout(function () {
+                    let score = -1;
+                    let creat_pipe = setInterval(function () {
+                        let li = scroll_pipe();
+                        li.animate({right: '600px'}, 4000, function () {
+                            this.remove();
+                        });
+                        if (score>0) {
+                            show_score(score);
+                        }
+                        $(".score_board .score ").replaceWith(`<span class="score">${score}</span>`);
+                        score++;
+                    },1000)
+                },1000);
+                setTimeout(function () {
+                    let bird_down_time = setInterval(function () {
+    //                    调用小鸟向下落函数
+                        bird_down();
+                    },10)
+                    $(document).on("click", function () {
+                        $(".bird").stop();
+                        bird_up();
+                    });
+                },500);
+                setInterval(function () {
+                    for (let i = 0; i < $(".pipes").children("li").length; i++) {
+                            crash($(".pipes").children("li")[i].children[0]);
+                            crash($(".pipes").children("li")[i].children[1]);
+                        }
+                },50)
+            });
+
+            let scroll_pipe = function () {
+                let height = $(".pipes")[0].clientHeight;
+                let space_height = 170;
+                let up_height = Math.floor(Math.random()*((height-space_height)/2)+60);
+                let down_height = height-space_height-up_height;
+                let li = $(`<li><div class='up_pipe' style='height: ${up_height}px'></div><div class='down_pipe' style="height: ${down_height}px"></div></li>`);
+                $(".pipes").append(li);
+                return li;
+            };
+
+            var bird_down = function () {
+                speed += 0.5;
+//                小鸟的速度，自由落体
+                if(speed >= 4){
+                    speed = 0
+                }
+                let bird = $(".bird")[0];
+//              给小鸟本身在高度上面的位置变化
+                bird.style.top = bird.offsetTop + speed +"px";
+//                判断小鸟是否接触到了地面
+                if(bird.offsetTop+bird.offsetHeight >= $(".pipes")[0].offsetHeight || bird.offsetTop <= 0){
+//                    调用游戏结束函数
+                     bird_game_over();
+                }
+            };
+
+            let bird_up = function () {
+                let bird = $(".bird");
+                let bird_img = $(".bird img");
+                bird_img.attr({src: "img/up_bird.png"});
+                bird.animate({top: "-=100px"}, 400, function () {
+                    bird_img.attr({src: "img/down_bird.png"});
+                })
+            }
+
+            let bird_game_over = function () {
+//                结束背景音乐
+                game_music.pause();
+                game_over.play();
+                $(".score_board").show();
+                $(".pipes li").stop(true);
+                $(".bird").stop(true);
+//               清除所有的计时器
+                var index = setInterval(function () {},100);
+                // console.log(index);
+                for(var i=1;i<=index;i++){
+                    clearInterval(i);
+                }
+                $(document).off("click");
+                $(".bird")[0].style.transition = "all 2s";
+                $(".bird img")[0].src = "img/down_bird.png";
+                $(".bird")[0].style.top =  $(".pipes")[0].children[0].offsetHeight - $(".bird")[0].offsetHeight + "px";
+            };
+
+            let show_score = function (score) {
+                // console.log(score);
+                if (score < 10) {
+                    $(".now_score img").attr({src: `img/${score}.jpg`})
+                }else if (score < 100) {
+                    let a = parseInt(score/10);
+                    let b = score%10;
+                    $(".now_score")[0].innerHTML = `<img src="img/${a}.jpg"><img src="img/${b}.jpg">`
+                }else if (score < 1000) {
+                    let a = parseInt(score/100);
+                    let b = parseInt(score/10)%10;
+                    let c = score%10;
+                    $(".now_score")[0].innerHTML = `<img src="img/${a}.jpg"><img src="img/${b}.jpg"><img src="img/${c}.jpg">`
+                }else{
+                    $(".now_score")[0].innerHTML = score;
+                }
+
+            }
+
+            let crash = function (pipe) {
+                let bird = $(".bird")[0];
+                let bird_left = bird.offsetLeft;
+                let bird_right = bird_left + bird.offsetWidth;
+                let bird_top = bird.offsetTop;
+                let bird_bottom = bird_top + bird.offsetHeight;
+
+                let pipe_left = pipe.parentNode.offsetLeft+434;
+                let pipe_right = pipe_left + pipe.offsetWidth;
+                let pipe_top = pipe.offsetTop;
+                let pipe_bottom = pipe_top + pipe.offsetHeight;
+
+                if (bird_left <= pipe_right && bird_right >= pipe_left && bird_top <= pipe_bottom && bird_bottom >= pipe_top) {
+                    bird_game_over();
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="box">
+<!--        开始游戏图片-->
+        <div class="head">
+            <img src="img/head.jpg" alt="">
+        </div>
+<!--        开始游戏“start”-->
+        <div class="start">
+            <img src="img/start.jpg" alt="">
+        </div>
+        <div class="level_bird">
+            <img src="img/bird.png" alt="">
+        </div>
+        <div class="bird">
+            <img src="img/down_bird.png" alt="">
+        </div>
+<!--        记分板-->
+        <div class="score_board">
+            <span class="score">0</span>
+            <span class="best">0</span>
+        </div>
+<!--        管道-->
+        <ul class="pipes"></ul>
+<!--        -->
+        <div class="now_score">
+            <img src="img/0.jpg">
+        </div>
+        <audio src="music/bullet.mp3" id="bullet" loop></audio>
+        <audio src="music/game_music.mp3" id="game_music" loop></audio>
+        <audio src="music/game_over.mp3" id="game_over"></audio>
+    </div>
+</body>
+</html>

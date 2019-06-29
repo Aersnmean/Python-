@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .menu{
+            margin: auto;
+            margin-top: 100px;
+            padding: 8px 0px;
+            width: 700px;
+            height: 50px;
+            background-color: #fff;
+        }
+        .text{
+            font-size: 18px;
+            vertical-align: 7px;
+        }
+        .color{
+            display: inline-block;
+            width: 40px;
+            height: 30px;
+            margin: 0px 10px;
+        }
+    </style>
+</head>
+<body >
+    <div class="menu">
+        <span class="text">请选择网页的背景色：</span>
+        <span class="color" style="background-color: #00ffff;"></span>
+        <span class="color" style="background-color: #5cbf4c;"></span>
+        <span class="color" style="background-color: #c000ff;"></span>
+        <span class="color" style="background-color: #ed4040;"></span>
+        <span class="color" style="background-color: #fb9b9b;"></span>
+        <span class="color" style="background-color: #fff000;"></span>
+    </div>
+</body>
+<script>
+    function change_bgc(value) {
+        value.onclick = function () {
+            document.body.style.backgroundColor = this.style.backgroundColor;
+        }
+    }
+    let bg_colors = Array.prototype.slice.call(document.querySelectorAll(".color"));
+    document.getElementsByTagName("body")[0].style.backgroundColor = bg_colors[0].style.backgroundColor;
+    bg_colors.map(change_bgc);
+</script>
+</html>

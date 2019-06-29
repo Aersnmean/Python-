@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止默认事件</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.oncontextmenu = function () {
+        event.preventDefault();
+        console.log("已阻止");
+    }
+</script>
+</html>

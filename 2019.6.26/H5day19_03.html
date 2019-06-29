@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div{
+                width: 200px;
+                height: 200px;
+                background-color: #398439;
+            }
+            .cla1{
+                background-color: #65b4f4;
+            }
+            .cla2{
+                background-color: #67b168;
+            }
+            .cla3{
+                background-color: #ffff00;
+            }
+            .cla4{
+                background-color: #ac2925;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <span>大风起兮云风扬</span>
+        </div>
+        <input type="text" class="inp2" value="请输入用户名">
+    </body>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        //form事件的操作
+//        val获取value值
+        console.log($(".inp2").val());
+//        val:设置value值
+
+            $(".inp2").val("请输入密码");
+//        <!--setAttribute:-->
+//        attr设置属性标签
+       $("div").attr("class",`cla1`);
+//        var i =0;
+//        setInterval(function () {
+//            i++;
+//               $("div").attr("class",`cla${i}`);
+//            if(i>4){
+//                i=0
+//            }
+//        },1000);
+//      attr获取属性值
+        console.log($("div").attr("class"));
+//       removeAttr;删除标签属性
+//        $("div").removeAttr("class")
+//      修改标签的属性
+        $("div").attr("class","cla1 cla2");
+
+//        获取标签里的内容
+        console.log($("div").html());
+//       用html获取内容时，会把标签带标签内容一起获取
+//       用text获取内容时，值会获取标签中的文本
+        console.log($("div").text());
+
+    </script>
+</html>

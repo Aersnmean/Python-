@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>预加载</title>
+        <style>
+            .cla img{
+                width: 1800px;
+                margin: 10px 0;
+            }
+            .cla{
+                 background-color: #2aeed2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cla"></div>
+    </body>
+    <script src="../0angle/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+        var list1 = [];
+        for(var i=1;i<11;i++){
+//            push:数组中添加数据
+            list1.push(`img/${i}.jpg`)
+        }
+        console.log(list1);
+//        获取网页高度
+        var window_height = document.documentElement.clientHeight;
+        console.log(window_height);
+
+        var i =1;
+        var time1 = setInterval(function () {
+//            获取图片高度
+            var img_height = $(".cla").height();
+            console.log(img_height);
+//            判断图片高度是否大于网页高度
+            if(img_height>=window_height){
+//                如果大于，不允许图片继续加载
+                clearInterval(time1)
+            }else {
+//               如果小于，加载图片
+                insert_img();
+            }
+        },100);
+
+//      定义函数，加载图片
+        var insert_img = function () {
+//            div中添加图片和图片标签
+            $(".cla").append(`<img src="${list1[i]}" alt="">`);
+            i++;
+            if(i>11){
+                i = 1;
+            }
+        };
+//        预加载滚轮事件
+        $(window).on('mousewheel',function () {
+//            获取div高度
+           var div_height = $(".cla").height();
+//           获取滚轮高度
+            var scroll_height = $(document).scrollTop();
+            if(window_height+scroll_height>div_height-100){
+                insert_img()
+            }
+        })
+        
+    </script>
+</html>

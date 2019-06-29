@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <style>
+        .cla0{
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .cla1{
+            width: 400px;
+            height: 400px;
+            background-color: #00bfff;
+        }
+        .cla2{
+            width: 300px;
+            height: 300px;
+            background-color: #00ffff;
+        }
+        .cla3{
+            width: 200px;
+            height: 200px;
+            background-color: #2aeed2;
+        }
+        .cla4{
+            width: 100px;
+            height: 100px;
+            background-color: #4fbf4a;
+        }
+    </style>
+</head>
+<body>
+    <div class="cla1 cla0">
+        <div class="cla2 cla0">
+            <div class="cla3 cla0">
+                <div class="cla4 cla0">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let cla1 = document.querySelector(".cla1");
+    let cla2 = document.querySelector(".cla2");
+    let cla3 = document.querySelector(".cla3");
+    let cla4 = document.querySelector(".cla4");
+    cla1.onclick = function () {
+        alert("1")
+    };
+    cla2.onclick = function () {
+        alert("2")
+    };
+    cla3.onclick = function () {
+        alert("3")
+    };
+    cla4.onclick = function () {
+        //阻止冒泡事件
+        // event.stopPropagation();
+        alert("4")
+    };
+    let bool = true;
+    cla1.addEventListener("click",function () {
+        alert("1");
+    },bool);
+    cla2.addEventListener("click",function () {
+        alert("2");
+    },bool);
+    cla3.addEventListener("click",function () {
+        alert("3");
+    },bool);
+    cla4.addEventListener("click",function () {
+        alert("4");
+    },bool);
+</script>
+</html>

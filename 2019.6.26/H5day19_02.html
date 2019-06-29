@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .a1 p{
+                color: #FF7D35;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div1">
+            这是jq对象应用
+        </div>
+    </body>
+    <!--引入jq包-->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+//        <!--js原生获取标签的方式-->
+//        var div1 = document.querySelector(".div1");
+//        console.log(div1);
+////        jq中 js对象获取标签的方式：$()
+//        var jq1  = $(".div1");
+////        利用js对象添加样式: 对象.css(字典)
+//        $(".div1").css({
+//            color:"red",
+//            width:"100px",
+//            border:"1px solid black",
+//            padding:"10px"
+//            }
+//        );
+//        console.log(jq1);
+////        创建并添加标签
+//        $(".div1").append("<a>咱们一起去东北</a>");
+////        获取样式
+//        var css_color = $(".div1").css("color");
+////        获取标签内容的高度
+//        var div_height = $(".div1").height();
+////       获取内容层和内边距的高度
+//        var div_height1 = $(".div1").innerHeight();
+////        获取内容层，内边距和边框的高度
+//        var div_height2 = $(".div1").outerHeight();
+//        console.log(css_color);
+//        console.log(div_height);
+//        console.log(div_height1);
+//        console.log(div_height2);
+//        添加元素
+//          append：添加并创建元素,在标签内最后面添加
+//        $(".div1").append("<h3>h3标签</h3>");
+//        $(".div1").append("<h4>h4标签</h4>");
+////          prepend：添加并创建元素,在标签内最前面添加
+//        $(".div1").prepend("<h1>h1标签</h1>");
+//        $(".div1").prepend("<h2>h2标签</h2>");
+////      after：同级标签，在后面插入并创建
+//        $("h1").after("<p>我是p标签，我插入在h1的后面</p>");
+////      before：同级标签，在前面插入并创建
+//        $("h3").before("<p>我是p标签，我插入在h3的前面</p>");
+////        remover: 删除标签
+//        $("h3").remove();
+        for(var i = 0;i<4;i++){
+           $(".div1").append(`<p>我是p${i}</p>`)
+        }
+//        wrap:包裹标签；注意：每个标签分个包括
+        $("p").wrap("<a href='#' class='a1'></a>");
+//        unwrap:去包裹标签
+        $("p").unwrap();
+//        wrapAll:包裹标签；注意：整体标签包括
+        $("p").wrapAll("<a href='#' class='a1'></a>");
+//      replacewith:替换：（可以替换多个）
+        $("p").replaceWith("<h3>这是h3标签</h3>")
+
+    </script>
+</html>

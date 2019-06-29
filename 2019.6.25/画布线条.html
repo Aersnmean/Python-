@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>canvas</title>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="800" style="border: solid 1px #24d1ec"></canvas>
+    <script>
+        function draw() {
+            let canvas=document.getElementById('canvas');
+            let ctx = canvas.getContext('2d');
+            setColorExample(ctx);
+            setLineStyle(ctx);
+        }
+
+        /*设置颜色*/
+        function setColorExample(ctx) {
+            setFillStyle(ctx);
+            setStrokeStyle(ctx);
+        }
+
+        /*设置填充颜色*/
+        function setFillStyle(ctx) {
+            ctx.globalAlpha = 0.8;
+            for (let i = 0; i < 6; i++) {
+                for (let j = 0; j < 6; j++) {
+                    ctx.fillStyle = `rgb(${Math.floor(42.5 * i)}, ${Math.floor(42.5 * j)}, 0)`;
+                    ctx.fillRect(j * 50, i * 50, 50, 50);
+                }
+            }
+        }
+
+        /*设置绘制轮廓颜色*/
+        function setStrokeStyle(ctx) {
+            let randomInt = () => {
+                return parseInt(Math.random() * 255 , 10);
+            };
+
+            for (let i = 0; i < 6; i++) {
+                for (let j = 0; j < 6; j++) {
+                    ctx.strokeStyle = `rgb(${randomInt()}, ${randomInt()}, ${randomInt()})`;
+                    ctx.strokeRect(j * 50 + 310, i * 50, 50, 50);
+                }
+            }
+        }
+
+        function setLineStyle(ctx) {
+            setLineWidth(ctx);
+            setLineCap(ctx);
+            setLineJoin(ctx);
+            setLineDash(ctx);
+        }
+
+        function setLineWidth(ctx) {
+            ctx.beginPath();
+            ctx.moveTo(10, 350);
+            ctx.lineTo(250, 350);
+            ctx.lineWidth = 50;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(10, 350);
+            ctx.lineTo(250, 350);
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+
+        function setLineCap(ctx) {
+            ctx.beginPath();
+            ctx.moveTo(40, 450);
+            ctx.lineTo(40, 550);
+            ctx.lineWidth = 50;
+            ctx.lineCap = "butt";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(110, 450);
+            ctx.lineTo(110, 550);
+            ctx.lineWidth = 50;
+            ctx.lineCap = "round";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(180, 450);
+            ctx.lineTo(180, 550);
+            ctx.lineWidth = 50;
+            ctx.lineCap = "square";
+            ctx.stroke();
+        }
+
+        function setLineJoin(ctx) {
+            ctx.lineWidth = 30;
+
+            ctx.beginPath();
+            ctx.moveTo(350, 320);
+            ctx.lineTo(450, 420);
+            ctx.lineTo(550, 320);
+            ctx.lineTo(650, 420);
+            ctx.closePath();
+            ctx.lineJoin = 'round';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(350, 430);
+            ctx.lineTo(450, 530);
+            ctx.lineTo(550, 430);
+            ctx.lineTo(650, 530);
+            ctx.closePath();
+            ctx.lineJoin = 'bevel';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(350, 550);
+            ctx.lineTo(450, 650);
+            ctx.lineTo(550, 550);
+            ctx.lineTo(650, 650);
+            ctx.closePath();
+            ctx.lineJoin = 'miter'; // 默认值
+            ctx.stroke();
+        }
+
+        function setLineDash (ctx) {
+            ctx.setLineDash([20,5]);
+            ctx.lineDashOffset = 5;
+            ctx.lineWidth = 2;
+            ctx.strokeRect(620, 10, 200, 200);
+
+            console.log(ctx.getLineDash()); //[20, 5]
+        }
+        draw();
+    </script>
+</body>
+</html>

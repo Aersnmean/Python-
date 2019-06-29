@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .show{
+            height: 183px;
+            width: 120px;
+            border: 2px solid #bce8f1;
+            margin-left: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        .show>img{
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let cartoon = document.querySelector(".show>img");
+            let index = 1;
+            setInterval(function () {
+                cartoon.style.left = `${index*-120}px`;
+                index++;
+                if (index >= 8) {
+                    index = 0;
+                }
+            },70)
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img src="img/walking.png" alt="">
+    </div>
+    <div class="show">
+        <img src="img/walking.png" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cla{
+                width: 300px;
+                height: 300px;
+                background-color: #65b4f4;
+                overflow: hidden;
+            }
+            .cla1{
+                margin: 50px;
+                width: 50px;
+                height: 50px;
+                background: #FF7D35;
+                /*display: none;*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cla">
+            <div class="cla1"></div>
+        </div>
+        <button class="btn1">显示</button>
+        <button class="btn2">隐藏</button>
+    </body>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        //        <!--自定义动画-->
+        var index= 0;
+        var num = 0;
+        var time1 = setInterval(function () {
+            $(".cla1").css({
+//                transform:改变，使…变形；转换
+//                rotateZ:定义沿着 Z 轴的 3D 旋转
+                transform:`rotateZ(${index}deg)`,
+                backgroundColor:`rgb(${num},30,30)`
+            });
+            index += 70;
+            num  += 10;
+            if(num>255){
+                num = 0;
+            }
+        },100);
+        var time2 = setInterval(function () {
+            $(".cla1").animate({
+//                opacity:0.1,
+                width:"150px",
+                height:"150px"
+            },3000,function () {
+            })
+        },100)
+
+
+
+
+
+
+////        <!--显示-->
+////      jq中事件的定义方式：$().on("事件","函数")
+//        $(".btn1").on("click",function () {
+//            $(".cla").show();
+//        });
+////        隐藏
+//        $(".btn2").on("click",function () {
+//            $(".cla").hide();
+//        });
+//        var time1 = setInterval(function () {
+////              动画效果
+////            slideup：滑动向上
+////            slidedown： 滑动向下
+////            fadeIn: 淡入
+////            fadeOut：淡出
+//            $(".cla1").fadeIn();
+//        },10);
+//
+//        var time3 = setInterval(function () {
+////             动画效果
+////            slideup：滑动向上
+////            slidedown： 滑动向下
+////            fadeIn: 淡入
+////            fadeOut：淡出
+//            $(".cla1").fadeOut();
+//        },10)
+
+
+    </script>
+</html>

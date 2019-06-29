@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+        #div1{
+            width: 1800px;
+            height: 900px;
+            background-color: paleturquoise;
+            border: 5px solid pink;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="div1" width="1800" height="900"></canvas>
+</body>
+<script>
+    // div1.onclick = function () {
+    //     console.log(event);
+    //     console.log(this.offsetHeight);
+    //     console.log(this.clientHeight);
+    //     console.log(this);
+    // }
+    function getRandomColor() {
+        let rand = Math.floor(Math.random() * 0xFFFFFF).toString(16);
+        if(rand.length == 6){
+            return rand;
+        }else{
+            return getRandomColor();
+        }
+    }
+    function drawline(canvas) {
+        let cxt=canvas.getContext('2d');
+        //刷新画布
+        cxt.canvas.height = cxt.canvas.height;
+        let x = event.offsetX;
+        let y = event.offsetY;
+        cxt.moveTo(0,0);
+        cxt.lineTo(x,y);
+        cxt.moveTo(0,cxt.canvas.height);
+        cxt.lineTo(x,y);
+        cxt.moveTo(cxt.canvas.width,0);
+        cxt.lineTo(x,y);
+        cxt.moveTo(cxt.canvas.width,cxt.canvas.height);
+        cxt.lineTo(x,y);
+        cxt.strokeStyle = `rgb(${255 - Math.floor(0.141 * x)}, ${Math.floor(0.3 * y)}, ${Math.floor(0.1 * (x + y))})`;
+        cxt.lineWidth = 20;
+        cxt.stroke();
+    }
+    let div1 = document.querySelector("#div1");
+    div1.onmousemove = function () {
+        drawline(this);
+    }
+    // div1.onclick = function () {
+    //     console.log(event.layerX,event.layerY);
+    //     console.log(event.offsetX,event.offsetY);
+    // }
+</script>
+</html>

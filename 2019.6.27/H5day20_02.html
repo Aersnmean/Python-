@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script src="../0angle/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<!--    https://trains.ctrip.com/TrainBooking/Search.aspx?from=beijing&to=shanghai&day=2019-07-18&number=&fromCn=%25E5%258C%2597%25E4%25BA%25AC&toCn=%25E4%25B8%258A%25E6%25B5%25B7&mkt_header=bdkx-->
+    <form>
+        出发地：<input type="text" name="from">
+        目的地：<input type="text" name="to">
+        出发日期：<input type="date" name="day">
+        <input type="submit" name="fromCn" value="提交">
+    </form>
+</body>
+<script>
+    $("input[type='submit']").on("click",function () {
+        //去除默认事件
+        event.preventDefault();
+        let parse =  $("form").serialize();
+        // console.log(parse);
+
+        $.ajax({
+            url:"https://trains.ctrip.com/TrainBooking/Search.aspx",
+            //请求方式
+            type:"get",
+            //数据
+            data:parse,
+            //数据格式  默认json
+            dataType:"json",
+            //请求数据超时时间
+            timeout:1000,
+            //成功执行
+            success:function (data) {
+                console.log(data);
+            }
+        })
+    })
+</script>
+</html>

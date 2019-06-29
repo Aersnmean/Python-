@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cla{
+                display: none;
+            }
+            .cla1{
+                width: 380px;
+                height: 350px;
+                border: 1px solid #999999;
+                background-color: white;
+                /*固定框*/
+                position: fixed;
+                left: 42%;
+                top: 30%;
+                /*权重*/
+                z-index: 9999;
+            }
+            .cla2{
+                width: 350px;
+                height: 50px;
+                background-color: #00bfff;
+                margin: 10px;
+                border-radius: 5px;
+            }
+            .cla2 span{
+                margin-left: 10px;
+                font-size: 20px;
+                color: #eeeeee;
+                line-height: 50px;
+            }
+            .cla2 a{
+                display: inline-block;
+                width: 20px;
+                height: 25px;
+                text-align: center;
+                background-color: #eeeeee;
+                float: right;
+                margin:10px 10px 0  0;
+                text-decoration: none;
+            }
+            .cla3{
+                width: 350px;
+                line-height: 240px;
+                border: 1px solid red;
+                text-align: center;
+                margin-left: 10px;
+            }
+            .cla3 span{
+                font-size: 20px;
+                color: palegreen;
+            }
+            .cla4 {
+                text-align: center;
+            }
+            .cla4 span{
+                color: gold;
+            }
+            .cla5{
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.2);
+                z-index: 9900;
+            }
+        </style>
+    </head>
+    <body>
+    <button class="btn">弹出弹框</button>
+    <div class="cla">
+        <div class="cla1">
+            <div class="cla2">
+                <span>系统提示：</span>
+                <a href="#" class="x">X</a>
+            </div>
+            <div class="cla3">
+             <span> 亲！请关注近期的优惠活动！ </span>
+            </div>
+            <div class="cla4">
+                还有 <span class="count"> 5 </span> 秒自动关闭弹框
+            </div>
+        </div>
+        <div class="cla5"></div>
+    </div>
+    </body>
+    <script>
+        var btn = document.querySelector(".btn");
+        var x = document.querySelector(".x");
+        var count = document.querySelector(".count");
+        var cla = document.querySelector(".cla");
+
+        btn.onclick = function () {
+            cla.style.display = "block";
+
+            var time1 = 5;
+            var time2 = setInterval(function () {
+                time1--;
+                count.innerHTML = time1;
+                if(time1<1){
+                    cla.style.display = "none";
+//                    去掉定时器
+                    clearInterval(time2);
+                }
+            },1000);
+            x.onclick = function () {
+            cla.style.display = "none";
+            clearInterval(time2);
+
+        }
+        count.innerHTML = "5";
+
+        };
+
+
+    </script>
+</html>

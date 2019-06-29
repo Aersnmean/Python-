@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .cla1{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../0angle/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".cla1").on("mousedown",function () {
+                let div_x = event.offsetX;
+                let div_y = event.offsetY;
+                $(this).on("mousemove",function () {
+                    let mouse_x = event.pageX;
+                    let mouse_y = event.pageY;
+                    let x = mouse_x - div_x;
+                    let y = mouse_y - div_y;
+                    $(this).css({
+                        left:`${x}px`,
+                        top:`${y}px`
+                    })
+                })
+            })
+            $(".cla1").on("mouseup mouseleave",function () {
+                $(".cla1").off("mousemove")
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="cla1"></div>
+    <div class="cla1" style="background-color: #00ffff;"></div>
+</body>
+</html>

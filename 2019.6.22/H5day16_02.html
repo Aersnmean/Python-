@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1222632_jxz4r65hpto.css">
+    <style>
+        img{
+            width: 800px;
+        }
+        .cla0{
+            width: 800px;
+            overflow: hidden;
+            position: relative;
+        }
+        .cla1{
+            width: 4800px;
+            float: left;
+            font-size: 0px;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        .pages{
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+        .page{
+            font-size: 12px;
+        }
+        .pre_next_page{
+            font-size: 64px;
+            line-height: 100%;
+            width: 100%;
+            height: 22%;
+            position: absolute;
+            top: 37%;
+        }
+        .last{
+            padding-left: 5px;
+            width: 3%;
+            height: 100%;
+            float: left;
+            background-color: rgba(0,0,0,.03);
+        }
+        .next{
+            padding-right: 5px;
+            width: 3%;
+            height: 100%;
+            float: right;
+            text-align: right;
+            background-color: rgba(0,0,0,.03);
+        }
+        .last:hover{
+            background-color: rgba(0,0,0,.3);
+        }
+        .next:hover{
+            background-color: rgba(0,0,0,.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="cla0">
+        <div class="cla1">
+            <img src="https://i1.mifile.cn/a4/xmad_15610381131993_nQbOd.jpg" alt="">
+            <img src="https://i1.mifile.cn/a4/xmad_15603108972101_xQIKl.jpg" alt="">
+            <img src="https://i1.mifile.cn/a4/xmad_15486597522208_HOEjJ.jpg" alt="">
+            <img src="https://i1.mifile.cn/a4/xmad_15609507520682_FBLpS.jpg" alt="">
+            <img src="https://i1.mifile.cn/a4/xmad_15608246770003_KZDoR.jpg" alt="">
+            <img src="https://i1.mifile.cn/a4/xmad_15610381131993_nQbOd.jpg" alt="">
+        </div>
+        <div class="pages">
+            <span class="iconfont icon-danxuanxuanzhong page"></span>
+            <span class="iconfont icon-danxuan_weixuanzhong page"></span>
+            <span class="iconfont icon-danxuan_weixuanzhong page"></span>
+            <span class="iconfont icon-danxuan_weixuanzhong page"></span>
+            <span class="iconfont icon-danxuan_weixuanzhong page"></span>
+        </div>
+        <div class="pre_next_page">
+            <div class="iconfont icon-houtuishangyige last"></div>
+            <div class="iconfont icon-qianjinxiayige next"></div>
+        </div>
+    </div>
+</body>
+<script>
+    function change_page(index) {
+        let pages = document.querySelectorAll(".page");
+        if (index == pages.length) {
+            index = 0;
+        }
+        for (let i = 0; i < pages.length; i++) {
+            pages[i].className = "iconfont icon-danxuan_weixuanzhong page";
+        }
+        pages[index].className = "iconfont icon-danxuanxuanzhong page";
+    }
+
+    let smalls = document.querySelector(".cla1");
+    //一次轮播
+    let once_lb = function (end,callback=function () {}) {
+        let begin = getComputedStyle(smalls).left;
+        if (end > 0) {
+            begin = getComputedStyle(smalls).right;
+        }
+        let total = end - parseFloat(begin);
+        let step = 50;
+        let b_step = 0;
+        let time1 = setInterval(function () {
+            b_step++;
+            smalls.style.left = parseFloat(begin) + total/step*b_step + "px";
+            if (b_step >= step) {
+                clearInterval(time1);
+                callback(time1);
+            }
+        },20)
+    };
+    //自动轮播
+    let index = 0;
+    // function auto_lb() {
+    function auto_lb() {
+        index++;
+        change_page(index);
+        once_lb(-index * 800, function () {
+            if (index >= 5) {
+                index = 0;
+                smalls.style.left = 0;
+            }
+        });
+    }
+
+    let time2 = setInterval(auto_lb,3000);
+    let pages = document.querySelectorAll(".page");
+    for (let i = 0; i < pages.length; i++) {
+        pages[i].onclick = function () {
+            clearInterval(time2);
+            once_lb(i*-800);
+            change_page(i);
+            index = i;
+            setTimeout(function () {
+                time2 = setInterval(auto_lb,3000);
+            },3000);
+        };
+        pages[i].onmouseover = function () {
+            pages[i].className = "iconfont icon-danxuanxuanzhong page"
+        };
+        pages[i].onmouseout = function () {
+            if (i != index) {
+                pages[i].className = "iconfont icon-danxuan_weixuanzhong page"
+            }
+        }
+    }
+
+    document.querySelector(".last").onclick = function () {
+        index = index==0?4:index-1;
+        clearInterval(time2);
+        once_lb(index*-800);
+        change_page(index);
+        setTimeout(function () {
+            time2 = setInterval(auto_lb,3000);
+        },3000);
+        console.log(index);
+    }
+    document.querySelector(".next").onclick = function () {
+        index = index==4?0:index+1;
+        clearInterval(time2);
+        once_lb(index*-800);
+        change_page(index);
+        setTimeout(function () {
+            time2 = setInterval(auto_lb,3000);
+        },3000);
+        console.log(index);
+    }
+</script>
+</html>

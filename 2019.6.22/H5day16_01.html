@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cla{
+                width: 200px;
+                height: 200px;
+                background-color: gold;
+                border: 1px solid palevioletred;
+            }
+            #id1{
+                background-color: #65b4f4;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cla" id="id1" style="background-color: #3c763d">
+
+        </div>
+    </body>
+    <script>
+//        <!--获取class标签-->
+        var cla = document.querySelector(".cla");
+//        console.log(cla);
+//        创建H3标签
+        var h3 = document.createElement("h3");
+        cla.appendChild(h3);
+        h3.innerHTML = `壹号中北`;
+        for(var i=0;i<5;i++){
+            var p = document.createElement("p");
+//            默认添加到标签后面
+            cla.appendChild(p);
+            p.innerHTML = `p${i}`;
+
+//            var first_p = document.querySelector("p");
+//            insertBefore:添加到标签前面，两个参数
+//            参数一：标签，参数二：位置
+//            cla.insertBefore(p,first_p);
+        }
+        var ps = document.querySelectorAll("p");
+        console.log(ps);
+//        子标签删除操作
+        cla.removeChild(ps[3]);
+//        子标签替换操作
+        cla.replaceChild(h3,ps[2]);
+//        默认行间样式操作
+        cla.style.backgroundColor = "red";
+//        获取cla样式:只读
+        var sty = getComputedStyle(cla);
+        console.log(sty.backgroundColor);
+//      获取元素的子节点：获取的有，标签，属性，样式
+        var tag_cla = cla.childNodes;
+        console.log(tag_cla);
+//      只获取子元素标签属性。
+        var  tag_child = cla.children;
+        console.log(tag_child);
+//      获取父元素标签
+        var tag_parent = h3.parentNode;
+        console.log(tag_parent);
+
+
+    </script>
+</html>

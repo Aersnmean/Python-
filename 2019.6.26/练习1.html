@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习1</title>
+    <link rel="stylesheet" href="css/练习1.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            $(".title").click(function () {
+                $(".content").animate({right:`${500*$(this).index()}px`})
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="news">
+        <div class="header">
+            <div class="title">公司新闻</div>
+            <div class="title">国际新闻</div>
+            <div class="title">行业动态</div>
+        </div>
+        <div class="content">
+            <div id="div0" class="news_content">
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%B0%CB%B0%DB%D4%DD%B1%F0%CA%EE%C6%DA%B5%B5">八佰暂别暑期档</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%BA%FE%C4%CF%B8%DF%BF%BC%B7%D6%CA%FD%CF%DF">湖南高考分数线</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%D6%D0%B9%FA%C5%AE%D7%E3%CE%DE%D4%B5%B0%CB%C7%BF">中国女足无缘八强</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%C1%F5%EA%BB%C8%BB%B8%F8%B7%DB%CB%BF%BE%E8%C7%AE">刘昊然给粉丝捐钱</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%D1%EE%C7%A7%8B%C3%D2%E2%CD%E2%CB%A4%B5%B9">杨千嬅意外摔倒</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%CB%FB%C3%C7%CA%C7%BC%A9%B6%BE%D3%A2%D0%DB">他们是缉毒英雄</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+            </div>
+            <div id="div1" class="news_content">
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%B0%CB%B0%DB%D4%DD%B1%F0%CA%EE%C6%DA%B5%B5">八佰暂别暑期档</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%BA%FE%C4%CF%B8%DF%BF%BC%B7%D6%CA%FD%CF%DF">湖南高考分数线</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%D6%D0%B9%FA%C5%AE%D7%E3%CE%DE%D4%B5%B0%CB%C7%BF">中国女足无缘八强</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%C1%F5%EA%BB%C8%BB%B8%F8%B7%DB%CB%BF%BE%E8%C7%AE">刘昊然给粉丝捐钱</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%D1%EE%C7%A7%8B%C3%D2%E2%CD%E2%CB%A4%B5%B9">杨千嬅意外摔倒</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%CB%FB%C3%C7%CA%C7%BC%A9%B6%BE%D3%A2%D0%DB">他们是缉毒英雄</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+            </div>
+            <div id="div2" class="news_content">
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%B0%CB%B0%DB%D4%DD%B1%F0%CA%EE%C6%DA%B5%B5">八佰暂别暑期档</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%BA%FE%C4%CF%B8%DF%BF%BC%B7%D6%CA%FD%CF%DF">湖南高考分数线</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%D6%D0%B9%FA%C5%AE%D7%E3%CE%DE%D4%B5%B0%CB%C7%BF">中国女足无缘八强</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%C1%F5%EA%BB%C8%BB%B8%F8%B7%DB%CB%BF%BE%E8%C7%AE">刘昊然给粉丝捐钱</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%D1%EE%C7%A7%8B%C3%D2%E2%CD%E2%CB%A4%B5%B9">杨千嬅意外摔倒</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+                <div class="box">
+                    <span><a href="http://www.baidu.com/baidu?cl=3&tn=SE_baiduhomet8_jmjb7mjw&rsv_dl=fyb_top&fr=top1000&wd=%CB%FB%C3%C7%CA%C7%BC%A9%B6%BE%D3%A2%D0%DB">他们是缉毒英雄</a></span>
+                    <span class="time">6-26 15:30</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

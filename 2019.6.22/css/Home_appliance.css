@@ -1,0 +1,96 @@
+.home_appliance{
+    margin: 20px auto;
+    width: 66%;
+    position: relative;
+}
+.home_appliance .left_box{
+    width: 234px;
+    position: absolute;
+}
+.home_appliance .left_box .little_box1{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 0px;
+    background-color: #ffffff;
+    transition-duration: 1s;
+    position: relative;
+    float: left;
+}
+.home_appliance .little_box1:hover{
+    bottom: 4px;
+    box-shadow: 4px 4px 6px rgba(123, 123, 123, 0.3),-4px 4px 6px rgba(123, 123, 123, 0.3);
+}
+.home_appliance .right_box{
+    width: 1000px;
+    float: right;
+    position: relative;
+    overflow: hidden;
+}
+.home_appliance .right_box .right_top_box{
+    float: top;
+    position: relative;
+}
+.home_appliance .right_box .right_bottom_box{
+    float: bottom;
+    position: relative;
+}
+.home_appliance .right_box .little_box1{
+    box-sizing: border-box;
+    text-align: center;
+    width: 234px;
+    margin: 0px 0px 14px 14px;
+    padding-top: 20px;
+    background-color: #ffffff;
+    transition-duration: 0.5s;
+    position: relative;
+    float: left;
+    overflow: hidden;
+}
+.home_appliance .right_box .little_box1 .flag{
+    color: #ffffff;
+    width: 55px;
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 37%;
+    padding: 5px;
+}
+.bgc_green{
+    background-color: #83C44E;
+}
+.bgc_red{
+    background-color: #E53935;
+}
+.home_appliance .right_box .little_box1 .price{
+    font-size: 14px;
+    color: #ff6700;
+    background-color: rgba(0,0,0,0);
+    margin: 35px 0px;
+}
+.home_appliance .right_box .little_box1 .information{
+    height: 0px;
+    width: 100%;
+    background-color: #ff6700;
+    position: absolute;
+    display: block;
+    bottom: -68px;
+}
+.home_appliance .right_box .little_box1 .information .x_x{
+    font-size: 12px;
+    color: white;
+}
+.home_appliance .right_box .little_box1 .information .author{
+    font-size: 10px;
+    color: #ff9d5b;
+}
+.home_appliance .right_box .little_box1:hover .information{
+    display:block;
+    height: 68px;
+    transition: height 1s;
+    bottom: 0px;
+}
+.empty{
+    clear: both;
+}
